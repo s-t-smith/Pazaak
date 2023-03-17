@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classHandCard.cs" />
+    <Compile Include="classDeck.cs" />
+    <Compile Include="classCard.cs" />
     <Compile Include="gameBoard.cs">
       <SubType>Form</SubType>
     </Compile>
