@@ -9,11 +9,12 @@ namespace Pazaak
     internal class Card
     {
         // Fields:
-        public int Val { get; protected set; }
+        protected int Val { get; set; } // card number value
 
         // Methods:
-        protected Card() { }
-        protected Card(int val) { }
+        public Card() { }
+        public Card(int val) { }
+        public void Flip() { }
         
     }
 }

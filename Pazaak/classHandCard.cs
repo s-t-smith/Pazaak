@@ -8,5 +8,10 @@ namespace Pazaak
 {
     internal class handCard : Card
     {
+        // Fields:
+        protected bool Suit;            // card action, + or -
+
+        // Methods:
+        public void Flip() { }
     }
 }
