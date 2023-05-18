@@ -1,5 +1,6 @@
-# Pazaak
+# Pyzaak
 A GUI-based card game similar to blackjack. Originally found in the Bioware game Star Wars: Knights of the Old Republic.
+This sub-project is focused on an implementation with Python rather than C#.
 
 # Game rules:
 Pazaak plays like balckjack; each player is attemptimg to score as close to a value as they can without going over. In blackjack, the target score is 21, while in Pazaak, the target score is 20.
