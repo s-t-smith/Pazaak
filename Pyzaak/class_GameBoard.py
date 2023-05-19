@@ -5,10 +5,8 @@ import tkinter
 # Extends the Tk class:
 class GameBoard(tkinter.Tk):
     def __init__(self):
-        # super().__init__()
+        super().__init__()
             # super() apparently to expose methods from Tk to the GameBoard class, lets us use the base class __init__.
-            
-        tkinter.Tk.__init__()
         
         # Set configuration options for the root window:
         self.title("Pyzaak")
@@ -20,6 +18,7 @@ class GameBoard(tkinter.Tk):
         self.buttonStand.pack()
         self.buttonQuit = tkinter.Button(text="Quit")
         self.buttonQuit.pack()
+        # TODO: create buttons for the hand cards.
         
     def __main__(self):
         self.mainloop()
