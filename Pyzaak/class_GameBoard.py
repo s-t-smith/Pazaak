@@ -1,3 +1,5 @@
+# This class will implement the window to display the game during play.
+
 import tkinter
 
 # Extends the Tk class:
