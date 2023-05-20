@@ -21,7 +21,7 @@ class Deck:
         random.shuffle(self.cards)
 
     def draw(self, num: int) -> list:
-        if self.cards.len() > num:
+        if len(self.cards) > num:
             cardsDrawn = self.cards[0:num]
             del self.cards[:num]
             return cardsDrawn
