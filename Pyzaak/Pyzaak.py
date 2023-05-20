@@ -5,11 +5,15 @@ from class_Deck import Deck
 # from class_Card import Card
     # Already imported by Deck
 from class_Hand import Hand
+from class_CPUPlayer import CPUPlayer
 
 class Pyzaak():
 	
     def __init__(self):
         
+        # Create CPU Player:
+        self.CPU = CPUPlayer()
+
         # Create the table deck:
         self.tableDeck = Deck(True)
 
@@ -37,6 +41,11 @@ class Pyzaak():
         else:
             self.playerFirst = False
 
+    # TODO: create a main loop.
+
+    # TODO: create a method for each player's turn.
+    
+    # Using this for some manual testing, probably not useful for runtime:
     def __str__(self) -> str:
         outString = f"Player Score: {self.playerScore}\n"
         outString += f"Player Hand: "
