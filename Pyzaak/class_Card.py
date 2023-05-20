@@ -1,7 +1,4 @@
 # This class will be the base class for deck cards and hand cards.
-# To do:
-#   Create derivative classes;
-#   Hand card should implement a flip() function to change sign (+/-).
 
 class Card:
     def __init__(self, val: int, canFlip: bool=False):
@@ -14,3 +11,7 @@ class Card:
     def flip(self) -> None:
         if self.canFlip:
             self.value *= -1
+
+    # Going to use this for some manual testing:
+    def __str__(self) -> str:
+        print("Value: ", self.value, '\n', "Flip: ", self.canFlip, '\n')
