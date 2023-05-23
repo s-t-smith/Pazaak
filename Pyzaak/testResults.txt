@@ -1,0 +1,38 @@
+Testing Card class...
+Value: 9
+Flip: False
+
+Value: -3
+Flip: True
+
+
+
+Testing Deck class...
+ 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 10,
+Shuffled:   4, 10, 9, 2, 6, 3, 4, 6, 3, 9, 10, 1, 9, 8, 3, 10, 5, 4, 5, 8, 7, 6, 8, 6, 2, 1, 1, 9, 1, 3, 7, 2, 7, 10, 4, 5, 2, 5, 8, 7,
+ 6, 1, -3, 4, -4, -1, -5, -2, -6, 3,
+
+
+Testing Hand class...
+Value: 6
+Flip: [False]
+
+Value: 1
+Flip: [True]
+
+Value: -3
+Flip: [True]
+
+Value: 4
+Flip: [False]
+
+ None None None None
+
+
+Testing Pyzaak...
+Game initialize:
+Player Score: 0
+Player Hand:  -3 2 3 -5
+
+Computer Score: 0
+Computer Hand:  -3 -5 -6 -2
