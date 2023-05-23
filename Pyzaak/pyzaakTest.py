@@ -37,6 +37,10 @@ del mainDeck
 del sideDeck
 print("\n")
 
+print("Testing CPU player...")
+# placeholder
+print("CPU decision tree in work.\n")
+
 print("Testing Pyzaak...")
 print("Game initialize:")
 testGame = Pyzaak()

@@ -10,15 +10,22 @@ class GameBoard(tkinter.Tk):
         
         # Set configuration options for the root window:
         self.title("Pyzaak")
+
+        # TODO: Create frames:
+        # Should have a start page with "Start" and "Quit"
+        # Next should be the actual game page.
+        self.startFrame = tkinter.Frame(self)
+        self.gameFrame = tkinter.Frame(self)
         
-        # Set buttons:
-        self.buttonEndTurn = tkinter.Button(text="End Turn")
-        self.buttonEndTurn.pack()
-        self.buttonStand = tkinter.Button(text="Stand")
-        self.buttonStand.pack()
-        self.buttonQuit = tkinter.Button(text="Quit")
-        self.buttonQuit.pack()
-        # TODO: create buttons for the hand cards.
+        # TODO: Create basic buttons.
+        self.btn_Start = tkinter.Button(self.startFrame, text="Start", command=self.gameFrame.tkraise())
+        self.btn_Start.pack()
+        self.btn_Quit = tkinter.Button(self.startFrame, text="Quit", command=self.quit())
+        self.btn_Quit.pack()
+        self.startFrame.pack()
+        self.gameFrame.pack()
+        self.startFrame.tkraise()
+        
         
     def __main__(self):
         self.mainloop()
