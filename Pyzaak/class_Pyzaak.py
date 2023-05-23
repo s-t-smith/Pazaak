@@ -41,9 +41,7 @@ class Pyzaak():
         else:
             self.playerFirst = False
 
-    # TODO: create a main loop.
-
-    # TODO: create a method for each player's turn.
+    # TODO: figure out how this game object will interact with the gaem board.
     
     # Using this for some manual testing, probably not useful for runtime:
     def __str__(self) -> str:

@@ -3,7 +3,7 @@
 from class_Card import Card
 from class_Deck import Deck
 from class_Hand import Hand
-from Pyzaak import Pyzaak
+from class_Pyzaak import Pyzaak
 import sys
 import random
 
@@ -41,7 +41,7 @@ print("Testing CPU player...")
 # placeholder
 print("CPU decision tree in work.\n")
 
-print("Testing Pyzaak...")
+print("Testing Pyzaak class...")
 print("Game initialize:")
 testGame = Pyzaak()
 print(testGame)
