@@ -7,10 +7,11 @@ class CPUPlayer:
         pass    # placeholder
 
     # TODO: create decision tree;
-        # if the current score is close under 20, play the card that gets it closest to 20.
-        # if the current score is over 20, play the card that gets it closest but under 20.
-        # if the current score is close to 20 and no cards will get closer, "Stand" (return 99).
-        # if the current score is not close to 20, "End Turn" (return 0).
+        # Compare score to target.
+        # If playing a card gets to 20, play and Stand.
+        # If playing a card does not get to 20, make another decision:
+            # If score is well under 20, End Turn.
+            # If score is less but close to 20, Stand.
         
     def playCard(hand: Hand, index: int) -> int:
         return hand.play(index)

@@ -24,8 +24,6 @@ print("\n")
 print("Testing Deck class...")
 mainDeck = Deck(True)
 print(mainDeck)
-mainDeck.shuffle()
-print("Shuffled: ", mainDeck)
 sideDeck = Deck(False)
 print(sideDeck)
 # del testDeck
