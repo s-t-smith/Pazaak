@@ -20,5 +20,6 @@ class Hand:
         outString = ""
         for card in self.cards:
             # outString += f"{card.show()}, "
-            outString = f"{outString} {card.show()},"
+            # outString = f"{outString} {card.show()},"
+            outString = f"{outString} {print(card)}"
         return outString

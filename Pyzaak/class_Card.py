@@ -14,4 +14,6 @@ class Card:
 
     # Going to use this for some manual testing:
     def __str__(self) -> str:
-        print("Value: ", self.value, '\n', "Flip: ", self.canFlip, '\n')
+        # print("Value: ", self.value, '\n', "Flip: ", self.canFlip, '\n')
+        outstr = "Value: "+str(self.value)+'\n'+"Flip: "+str(self.canFlip)+'\n'
+        return outstr
