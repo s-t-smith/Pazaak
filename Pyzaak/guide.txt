@@ -1,0 +1,15 @@
+Pazaak is like Blackjack; each player is trying to hit a score of 20 without going over.
+
+A game starts with a main deck of cards valued 1 to 10, and each player has their own hand of cards that can add or subtract a value.
+On their turn, each player will draw a card from the deck and add that card's value to their score.
+During their turn, a player may:
+- End Turn to pass to the next player with no further action.
+- Play a card from their hand to change their score, then pass to the next player.
+- Stand to keep their current score until the round is over.
+
+A player wins a round when they:
+- Hit a score of 20 while the other player scores less than or more than 20.
+- Gets closest to a score of 20 while the other player scores less than them or more than 20.
+A player loses a round when they:
+- End a turn with a score greater than 20.
+- Stands with a lower score than the other player (if the other player doesn't 'bust').

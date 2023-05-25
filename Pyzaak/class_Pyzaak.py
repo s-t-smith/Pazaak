@@ -1,6 +1,5 @@
 # This file will be the overall main for the game.
 
-from class_GameBoard import GameBoard
 from class_Deck import Deck
 # from class_Card import Card
     # Already imported by Deck
@@ -41,7 +40,7 @@ class Pyzaak():
         else:
             self.playerFirst = False
 
-    # TODO: figure out how this game object will interact with the gaem board.
+    # TODO: figure out how this game object will interact with the game board.
     
     # Using this for some manual testing, probably not useful for runtime:
     def __str__(self) -> str:
