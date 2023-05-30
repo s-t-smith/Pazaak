@@ -14,29 +14,35 @@ class GameBoard(tkinter.Tk):
 
         # Create Start frame:
            # Keeps the app from launching straight into a game.
+            ### The base Frame for the starting window:
         self.startFrame = tkinter.Frame(self)
         self.startFrame.title = tkinter.Label(self.startFrame, text="Pyzaak")
         self.startFrame.title.pack()
-        # TODO: get this guide text to show on the opening window without a giant block of text:
-        with open('guide.txt', 'r') as guideFile:
-            guideText = guideFile.read()
+            ### A brief guide for any new players (or reminder for returning users):
+            # TODO: get this working...
+        guideText = open('guide.txt').read()
         self.startFrame.guide = tkinter.Label(self.startFrame, textvariable=guideText)
         self.startFrame.guide.pack()
-        ###
+            ### The starting window will only have two options; "Play" to start a game, or "Quit" to exit the app:
         self.btn_Start = tkinter.Button(self.startFrame, text="Play", command=self.gameStart)
         self.btn_Start.pack()
         self.btn_startQuit = tkinter.Button(self.startFrame, text="Quit", command=self.destroy)
         self.btn_startQuit.pack()
         self.startFrame.pack()
+            ### Bring the starting window to the front of the app:
         self.startFrame.tkraise()
         
         # TODO: Create Game frame:
             # Where the actual game will happen.
+            ### The base Frame for the main game window:
         self.gameFrame = tkinter.Frame(self)
         self.gameFrame.title = tkinter.Label(self.gameFrame, text="Pyzaak")
         self.gameFrame.title.pack()
-
-            # Game buttons:
+            ### The user will have several buttons for turn actions;
+            ### - Stand: Keep the current score for the rest of the round.
+            ### - End Turn: Pass to the next player.
+            ### - Quit: Exit the app.
+            # TODO: create buttons for the hand cards.
         self.btn_Stand = tkinter.Button(self.gameFrame, text="Stand")
         self.btn_Stand.pack()
         self.btn_EndTurn = tkinter.Button(self.gameFrame, text="End Turn")
@@ -45,6 +51,7 @@ class GameBoard(tkinter.Tk):
         self.btn_gameQuit.pack()
         
     def gameStart(self):
+        ### Closes the starting window and brings up the main game window:
         self.startFrame.destroy()
         self.gameFrame.pack()
         self.gameFrame.tkraise()
