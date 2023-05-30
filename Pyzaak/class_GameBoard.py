@@ -50,7 +50,7 @@ class GameBoard(tkinter.Tk):
         self.playerRounds = tkinter.Label(self.gameFrame, text= "() () ()")
         self.playerRounds.grid(row=0, column= 0, sticky= 'W')
         self.playerScore = tkinter.Label(self.gameFrame, textvariable=self.game.playerScore)
-        self.playerScore.grid(row=0, column=1, sticky= 'E')
+        self.playerScore.grid(row=0, column=2, sticky= 'E')
         # TODO: create area for deck cards:
 
             ### The user will have several buttons for turn actions;
