@@ -32,6 +32,10 @@ class GameBoard(tkinter.Tk):
             ### Bring the starting window to the front of the app:
         self.startFrame.tkraise()
         
+    def gameStart(self):
+        ### Closes the starting window and brings up the main game window:
+        self.startFrame.destroy()
+
         # TODO: Create Game frame:
             # Where the actual game will happen.
             ### The base Frame for the main game window:
@@ -39,23 +43,27 @@ class GameBoard(tkinter.Tk):
         self.gameFrame.title = tkinter.Label(self.gameFrame, text="Pyzaak")
         self.gameFrame.title.pack()
             ### The user will have several buttons for turn actions;
-            ### - Stand: Keep the current score for the rest of the round.
-            ### - End Turn: Pass to the next player.
-            ### - Quit: Exit the app.
             # TODO: create buttons for the hand cards.
-        self.btn_Stand = tkinter.Button(self.gameFrame, text="Stand")
-        self.btn_Stand.pack()
+                ### - End Turn: Pass to the next player.
         self.btn_EndTurn = tkinter.Button(self.gameFrame, text="End Turn")
         self.btn_EndTurn.pack()
+                ### - Stand: Keep the current score for the rest of the round.
+        self.btn_Stand = tkinter.Button(self.gameFrame, text="Stand")
+        self.btn_Stand.pack()
+                ### - Quit: Exit the app.
         self.btn_gameQuit = tkinter.Button(self.gameFrame, text="Quit", command=self.destroy)
-        self.btn_gameQuit.pack()
-        
-    def gameStart(self):
-        ### Closes the starting window and brings up the main game window:
-        self.startFrame.destroy()
+        self.btn_gameQuit.pack(side = "bottom")
+
+        ### Place and bring the game window to the front:
         self.gameFrame.pack()
         self.gameFrame.tkraise()
+
+        ### Instantiate a game:
         self.game = Pyzaak()
     
+    def gameOver(self):
+        # TODO: make a "game over" window to restart or quit.
+        pass    # placeholder
+
     def __main__(self):
         self.mainloop()
