@@ -2,6 +2,7 @@
 
 import tkinter
 import os
+from typing import Any
 from class_Pyzaak import Pyzaak
 
 # Extends the Tk class:
@@ -21,10 +22,9 @@ class GameBoard(tkinter.Tk):
         self.startFrame.title = tkinter.Label(self.startFrame, text="Pyzaak")
         self.startFrame.title.grid(row=0, column=0, sticky='N')
             ### A brief guide for any new players (or reminder for returning users):
-            
             # TODO: get this working...
-        self.guideText = open(os.getcwd()+'\\guide.txt').read()
-        self.startFrame.guide = tkinter.Label(self.startFrame, textvariable=self.guideText)
+        guideText = open(os.getcwd()+'\\guide.txt').read()
+        self.startFrame.guide = tkinter.Label(self.startFrame, textvariable=guideText)
         self.startFrame.guide.grid(row=1, column=0)
             
             ### The starting window will only have two options; "Play" to start a game, or "Quit" to exit the app:
@@ -32,29 +32,59 @@ class GameBoard(tkinter.Tk):
         self.btn_Start.grid(row=2, column=0)
         self.btn_startQuit = tkinter.Button(self.startFrame, text="Quit", command=self.destroy)
         self.btn_startQuit.grid(row=3, column=0)
-        self.startFrame.pack()
-            ### Bring the starting window to the front of the app:
         
+        # Bring the starting window to the front of the app:
+        self.startFrame.pack()
         self.startFrame.tkraise()
         
     def gameStart(self):
-
-        ### Instantiate a game:
-        self.game = Pyzaak()
-
-        # TODO: Create Game frame:
-            # Where the actual game will happen.
-            ### The base Frame for the main game window:
+        
         self.gameFrame = tkinter.Frame(self)
         self.gameFrame.title = tkinter.Label(self.gameFrame, text="Pyzaak")
+        self.gameFrame.title.grid(row=0, column=1, sticky='N')
+
+        # Create player's side of the table:
+        self.playerSide = BoardSide(self.gameFrame, playerName="Player")
+        self.playerSide.grid(row=1, column=0)
+
+        # Create CPU's side of the table:
+        self.cpuSide = BoardSide(self.gameFrame, playerName="CPU")
+        self.cpuSide.grid(row=1, column=2)
+
+        self.btn_gameQuit = tkinter.Button(self.gameFrame, text="Quit", command=self.__init__())
+        self.btn_gameQuit.grid(row=2, column=1)
+
+        # Swap the opening frame for the game frame.
+        self.gameFrame.pack()
+        self.gameFrame.tkraise()
+    
+    def gameOver(self):
+        # Announce the end of the game and declare the winner:
+        self.GOFrame = tkinter.Frame(self)
+        self.GOFrame.title = tkinter.Label(self.GOFrame, text="Game Over")
+        self.GOFrame.title.grid(row=0, column=0, sticky='N')
         
+        # Buttons:
+        self.GOFrame.btn_Again = tkinter.Button(self.GOFrame, text="Play again", command=self.gameStart)
+        self.GOFrame.btn_Again.grid(row=2, column=0)
+        self.GOFrame.btn_Quit = tkinter.Button(self.GOFrame, text="Quit", command=self.destroy)
+        self.GOFrame.btn_Quit.grid(row=2, column=1)
+        
+        self.GOFrame.pack()
+        self.GOFrame.tkraise()
+
+    def __main__(self):
+        self.mainloop()
+
+class BoardSide(tkinter.Frame, playerName):
+    def __init__(self):
+        super().__init__()
         # TODO: Create player frame:
-        ### Player frame will include;
-        self.playerFrame = tkinter.Frame(self.gameFrame)
-        self.playerFrame.title = tkinter.Label(self.playerFrame, text="Player")
+        # Player frame will include;
+        self.title = tkinter.Label(self, text=playerName)
             # Round counters
             # Score
-        self.scoreBanner = tkinter.PanedWindow(self.playerFrame)
+        self.scoreBanner = tkinter.PanedWindow(self)
         self.playerRoundCounterA = tkinter.Checkbutton(self.scoreBanner, state="disabled")
         self.playerRoundCounterA.pack(side="left")
         self.playerRoundCounterB = tkinter.Checkbutton(self.scoreBanner, state="disabled")
@@ -68,42 +98,4 @@ class GameBoard(tkinter.Tk):
             # Hand grid (buttons)
             # End Turn button
             # Stand button
-            # Quit button
-        self.playerFrame.pack()
         
-
-        # TODO: Create CPU frame:
-        ### CPU frame will include;
-            # Round counters
-            # Score
-            # Card grid (play area)
-            # Hand grid (hidden cards)
-
-        ### Closes the starting window and brings up the main game window:
-        self.startFrame.destroy()
-        self.gameFrame.pack()
-        self.gameFrame.tkraise()
-    
-    def gameOver(self):
-        # Announce the end of the game and declare the winner:
-        self.GOFrame = tkinter.Frame(self)
-        self.GOFrame.title = tkinter.Label(self.GOFrame, text="Game Over")
-        self.GOFrame.title.grid(row=0, column=0, sticky='N')
-        if self.game.playerRounds > self.game.cpuRounds:
-            self.GOFrame.winner = tkinter.Label(self.GOFrame, text="Player wins!")
-            self.GOFrame.winner.grid(row=1, column=0)
-        elif self.game.cpuRounds > self.game.playerRounds:
-            self.GOFrame.winner = tkinter.Label(self.GOFrame, text="Python wins!")
-            self.GOFrame.winner.grid(row=1, column=0)
-
-        # Buttons:
-        self.GOFrame.btn_Again = tkinter.Button(self.GOFrame, text="Play again", command=self.gameStart)
-        self.GOFrame.btn_Again.grid(row=2, column=0)
-        self.GOFrame.btn_Quit = tkinter.Button(self.GOFrame, text="Quit", command=self.destroy)
-        self.GOFrame.btn_Quit.grid(row=2, column=1)
-        
-        self.GOFrame.pack()
-        self.GOFrame.tkraise()
-
-    def __main__(self):
-        self.mainloop()
