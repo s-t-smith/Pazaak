@@ -15,64 +15,12 @@ class GameBoard(tkinter.Tk):
         self.title("Pyzaak")
             # I'll have to look up more configuration options that would be useful.
 
-        # Create Start frame:
-           # Keeps the app from launching straight into a game.
-            ### The base Frame for the starting window:
-        self.startFrame = tkinter.Frame(self)
-        self.startFrame.title = tkinter.Label(self.startFrame, text="Pyzaak")
-        self.startFrame.title.grid(row=0, column=0, sticky='N')
-            ### A brief guide for any new players (or reminder for returning users):
-            # TODO: get this working...
-        guideText = open(os.getcwd()+'\\guide.txt').read()
-        self.startFrame.guide = tkinter.Label(self.startFrame, textvariable=guideText)
-        self.startFrame.guide.grid(row=1, column=0)
-            
-            ### The starting window will only have two options; "Play" to start a game, or "Quit" to exit the app:
-        self.btn_Start = tkinter.Button(self.startFrame, text="Play", command=self.gameStart)
-        self.btn_Start.grid(row=2, column=0)
-        self.btn_startQuit = tkinter.Button(self.startFrame, text="Quit", command=self.destroy)
-        self.btn_startQuit.grid(row=3, column=0)
+        # TODO: Create a dictionary of frames:
+            ### Game start
+            ### Game in play
+            ### Game over
         
-        # Bring the starting window to the front of the app:
-        self.startFrame.pack()
-        self.startFrame.tkraise()
-        
-    def gameStart(self):
-        
-        self.gameFrame = tkinter.Frame(self)
-        self.gameFrame.title = tkinter.Label(self.gameFrame, text="Pyzaak")
-        self.gameFrame.title.grid(row=0, column=1, sticky='N')
-
-        # Create player's side of the table:
-        self.playerSide = BoardSide(self.gameFrame, playerName="Player")
-        self.playerSide.grid(row=1, column=0)
-
-        # Create CPU's side of the table:
-        self.cpuSide = BoardSide(self.gameFrame, playerName="CPU")
-        self.cpuSide.grid(row=1, column=2)
-
-        self.btn_gameQuit = tkinter.Button(self.gameFrame, text="Quit", command=self.__init__)
-        self.btn_gameQuit.grid(row=2, column=1)
-
-        # Swap the opening frame for the game frame.
-        self.gameFrame.pack()
-        self.gameFrame.tkraise()
     
-    def gameOver(self):
-        # Announce the end of the game and declare the winner:
-        self.GOFrame = tkinter.Frame(self)
-        self.GOFrame.title = tkinter.Label(self.GOFrame, text="Game Over")
-        self.GOFrame.title.grid(row=0, column=0, sticky='N')
-        
-        # Buttons:
-        self.GOFrame.btn_Again = tkinter.Button(self.GOFrame, text="Play again", command=self.gameStart)
-        self.GOFrame.btn_Again.grid(row=2, column=0)
-        self.GOFrame.btn_Quit = tkinter.Button(self.GOFrame, text="Quit", command=self.destroy)
-        self.GOFrame.btn_Quit.grid(row=2, column=1)
-        
-        self.GOFrame.pack()
-        self.GOFrame.tkraise()
-
     def __main__(self):
         self.mainloop()
 
@@ -85,13 +33,13 @@ class BoardSide(tkinter.Frame):
             # Score
         self.scoreBanner = tkinter.PanedWindow(self)
         self.roundCounterA = tkinter.Checkbutton(self.scoreBanner, state="disabled")
-        self.roundCounterA.pack(side="left")
+        self.roundCounterA.grid(row=0, column=0)
         self.roundCounterB = tkinter.Checkbutton(self.scoreBanner, state="disabled")
-        self.roundCounterB.pack(side="left")
+        self.roundCounterB.grid(row=0, column=1)
         self.roundCounterC = tkinter.Checkbutton(self.scoreBanner, state="disabled")
-        self.roundCounterC.pack(side="left")
+        self.roundCounterC.grid(row=0, column=2)
         self.currentScore = tkinter.Label(self.scoreBanner, text="0")
-        self.currentScore.pack(side="right", padx=10)
+        self.currentScore.grid(row=0, column=3)
         self.scoreBanner.grid(row=0, column=0)
             # Card grid (play area)
         self.cardGrid = tkinter.PanedWindow(self)
@@ -108,7 +56,16 @@ class BoardSide(tkinter.Frame):
         if playerName!="CPU":
             self.buttonGrid = tkinter.PanedWindow(self)
             self.buttonGrid.btn_ET = tkinter.Button(self.buttonGrid, text="End Turn")
-            self.buttonGrid.btn_ET.pack()
+            self.buttonGrid.btn_ET.grid(row=0, column=0)
             self.buttonGrid.btn_ST = tkinter.Button(self.buttonGrid, text="Stand")
-            self.buttonGrid.btn_ST.pack()
+            self.buttonGrid.btn_ST.grid(row=0, column=1)
             self.buttonGrid.grid(row=3, column=0)
+
+class GameStart(tkinter.Frame):
+    pass #placeholder
+
+class GamePlay(tkinter.Frame):
+    pass #placeholder
+
+class GameOver(tkinter.Frame):
+    pass #placeholder

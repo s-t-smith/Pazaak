@@ -33,3 +33,4 @@ class CPUPlayer:
             if cpuScore + card.show() == 20:
                 # Don't stop if you can hit:
                 return False
+        ## TODO: update this; if NOT shouldStand, check possible plays.
