@@ -14,12 +14,21 @@ class GameBoard(tkinter.Tk):
         # Set configuration options for the root window (self):
         self.title("Pyzaak")
             # I'll have to look up more configuration options that would be useful.
+        baseFrame = tkinter.Frame(self)
 
         # TODO: Create a dictionary of frames:
+        self.gameFrames = {}
             ### Game start
             ### Game in play
             ### Game over
+        for F in (GameStart, GamePlay, GameOver):
+            frame = F(baseFrame, self)
+            self.gameFrames[F] = frame
+            frame.pack()
         
+    def switchFrame(self, frame):
+        target = self.gameFrames[frame]
+        target.raise()
     
     def __main__(self):
         self.mainloop()
@@ -63,9 +72,21 @@ class BoardSide(tkinter.Frame):
 
 class GameStart(tkinter.Frame):
     pass #placeholder
+    ### Should contain:
+        # Brief intro
+        # Button: Start
+        # Button: Quit
 
 class GamePlay(tkinter.Frame):
     pass #placeholder
+    ### Should contain:
+        # Player's board
+        # CPU's board
+        # Button: Quit
 
 class GameOver(tkinter.Frame):
     pass #placeholder
+    ### Should contain:
+        # Summary of last game
+        # Button: Play Again
+        # Button: Quit
