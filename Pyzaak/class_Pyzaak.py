@@ -41,6 +41,9 @@ class Pyzaak():
             self.playerFirst = False
 
     # TODO: figure out how this game object will interact with the game board.
+        ### probably need a lot of pass-by-ref.
+    # TODO: add more methods for implimenting the game rules.
+        ### Maybe create a state machine?
     
     # Using this for some manual testing, probably not useful for runtime:
     def __str__(self) -> str:

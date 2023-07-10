@@ -2,7 +2,9 @@
 
 import tkinter
 import os
+from tkinter import _Cursor, _Relief, _ScreenUnits, _TakeFocusValue, Misc
 from typing import Any
+from typing_extensions import Literal
 from class_Pyzaak import Pyzaak
 
 # Extends the Tk class:
@@ -22,9 +24,12 @@ class GameBoard(tkinter.Tk):
             ### Game in play
             ### Game over
         for F in (GameStart, GamePlay, GameOver):
-            frame = F(baseFrame, self)
+            frame = F(self, baseFrame)
             self.gameFrames[F] = frame
             frame.pack()
+
+        # End by raising the starting window:
+        self.switchFrame(GameStart)
         
     def switchFrame(self, frame):
         target = self.gameFrames[frame]
@@ -48,6 +53,8 @@ class BoardSide(tkinter.Frame):
         self.roundCounterC = tkinter.Checkbutton(self.scoreBanner, state="disabled")
         self.roundCounterC.grid(row=0, column=2)
         self.currentScore = tkinter.Label(self.scoreBanner, text="0")
+            ### this will need to be adjusted to read the variable from the game object.
+            ### wrap in an if() for player/CPU and set textvariable=Pyzaak.<player>Score.
         self.currentScore.grid(row=0, column=3)
         self.scoreBanner.grid(row=0, column=0)
             # Card grid (play area)
@@ -71,21 +78,27 @@ class BoardSide(tkinter.Frame):
             self.buttonGrid.grid(row=3, column=0)
 
 class GameStart(tkinter.Frame):
-    pass #placeholder
+    def __init__(self, master):
+        super().__init__(master)
+        self.title("Start")
     ### Should contain:
         # Brief intro
         # Button: Start
         # Button: Quit
 
 class GamePlay(tkinter.Frame):
-    pass #placeholder
+    def __init__(self, master):
+        super().__init__(master)
+        self.title("Play")
     ### Should contain:
         # Player's board
         # CPU's board
         # Button: Quit
 
 class GameOver(tkinter.Frame):
-    pass #placeholder
+    def __init__(self, master):
+        super.__init__(master)
+        self.title("Game Over")
     ### Should contain:
         # Summary of last game
         # Button: Play Again
