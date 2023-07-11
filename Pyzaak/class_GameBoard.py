@@ -1,10 +1,6 @@
 # This class will implement the window to display the game during play.
 
 import tkinter
-import os
-from tkinter import _Cursor, _Relief, _ScreenUnits, _TakeFocusValue, Misc
-from typing import Any
-from typing_extensions import Literal
 from class_Pyzaak import Pyzaak
 
 # Extends the Tk class:
@@ -17,6 +13,7 @@ class GameBoard(tkinter.Tk):
         self.title("Pyzaak")
             # I'll have to look up more configuration options that would be useful.
         baseFrame = tkinter.Frame(self)
+        baseFrame.pack()
 
         # TODO: Create a dictionary of frames:
         self.gameFrames = {}
@@ -33,7 +30,7 @@ class GameBoard(tkinter.Tk):
         
     def switchFrame(self, frame):
         target = self.gameFrames[frame]
-        target.raise()
+        target.tkraise()
     
     def __main__(self):
         self.mainloop()
@@ -78,28 +75,37 @@ class BoardSide(tkinter.Frame):
             self.buttonGrid.grid(row=3, column=0)
 
 class GameStart(tkinter.Frame):
-    def __init__(self, master):
-        super().__init__(master)
+    def __init__(self, parent, container):
+        super().__init__(self, parent)
         self.title("Start")
     ### Should contain:
         # Brief intro
         # Button: Start
         # Button: Quit
 
+    ### Placeholder/debugger
+        self.btn_Check = tkinter.Button(text="Next", command=parent.switchFrame(GamePlay))
+
 class GamePlay(tkinter.Frame):
-    def __init__(self, master):
-        super().__init__(master)
+    def __init__(self, parent, container):
+        super().__init__(self, parent)
         self.title("Play")
     ### Should contain:
         # Player's board
         # CPU's board
         # Button: Quit
 
+    ### Placeholder/debugger
+        self.btn_Check = tkinter.Button(text="Next", command=parent.switchFrame(GameOver))
+
 class GameOver(tkinter.Frame):
-    def __init__(self, master):
-        super.__init__(master)
+    def __init__(self, parent, container):
+        super.__init__(self, parent)
         self.title("Game Over")
     ### Should contain:
         # Summary of last game
         # Button: Play Again
         # Button: Quit
+
+    ### Placeholder/debugger
+        self.btn_Check = tkinter.Button(text="Next", command=parent.switchFrame(GameStart))
