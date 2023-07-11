@@ -35,6 +35,45 @@ class GameBoard(tkinter.Tk):
     def __main__(self):
         self.mainloop()
 
+class GameStart(tkinter.Frame):
+    def __init__(self, parent, container):
+        super().__init__(self, parent)
+        self.title("Start")
+    ### Should contain:
+        # Brief intro
+        # Button: Start
+        # Button: Quit
+
+    ### Placeholder/debugger
+        self.btn_Check = tkinter.Button(text="Next", command=container.switchFrame(GamePlay))
+        self.btn_Check.pack()
+
+class GamePlay(tkinter.Frame):
+    def __init__(self, parent, container):
+        super().__init__(self, parent)
+        self.title("Play")
+    ### Should contain:
+        # Player's board
+        # CPU's board
+        # Button: Quit
+
+    ### Placeholder/debugger
+        self.btn_Check = tkinter.Button(text="Next", command=container.switchFrame(GameOver))
+        self.btn_Check.pack()
+
+class GameOver(tkinter.Frame):
+    def __init__(self, parent, container):
+        super.__init__(self, parent)
+        self.title("Game Over")
+    ### Should contain:
+        # Summary of last game
+        # Button: Play Again
+        # Button: Quit
+
+    ### Placeholder/debugger
+        self.btn_Check = tkinter.Button(text="Next", command=container.switchFrame(GameStart))
+        self.btn_Check.pack()
+
 class BoardSide(tkinter.Frame):
     def __init__(self, playerName):
         super().__init__()
@@ -73,39 +112,3 @@ class BoardSide(tkinter.Frame):
             self.buttonGrid.btn_ST = tkinter.Button(self.buttonGrid, text="Stand")
             self.buttonGrid.btn_ST.grid(row=0, column=1)
             self.buttonGrid.grid(row=3, column=0)
-
-class GameStart(tkinter.Frame):
-    def __init__(self, parent, container):
-        super().__init__(self, parent)
-        self.title("Start")
-    ### Should contain:
-        # Brief intro
-        # Button: Start
-        # Button: Quit
-
-    ### Placeholder/debugger
-        self.btn_Check = tkinter.Button(text="Next", command=parent.switchFrame(GamePlay))
-
-class GamePlay(tkinter.Frame):
-    def __init__(self, parent, container):
-        super().__init__(self, parent)
-        self.title("Play")
-    ### Should contain:
-        # Player's board
-        # CPU's board
-        # Button: Quit
-
-    ### Placeholder/debugger
-        self.btn_Check = tkinter.Button(text="Next", command=parent.switchFrame(GameOver))
-
-class GameOver(tkinter.Frame):
-    def __init__(self, parent, container):
-        super.__init__(self, parent)
-        self.title("Game Over")
-    ### Should contain:
-        # Summary of last game
-        # Button: Play Again
-        # Button: Quit
-
-    ### Placeholder/debugger
-        self.btn_Check = tkinter.Button(text="Next", command=parent.switchFrame(GameStart))
