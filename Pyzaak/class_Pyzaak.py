@@ -34,14 +34,26 @@ class Pyzaak(StateMachine):
     def addUserScore(self, score: int) -> None:
         self.userScore += score
 
+    def reportUserScore(self) -> int:
+        return self.userScore
+
     def userRoundWin(self) -> None:
         self.userRounds += 1
+
+    def reportUserRounds(self) -> int:
+        return self.userRounds
     
     def addComScore(self, score: int) -> None:
         self.comScore += score
 
+    def reportComScore(self) -> int:
+        return self.comScore
+
     def comRoundWin(self) -> None:
         self.comRounds += 1
+
+    def reportComRounds(self) -> int:
+        return self.comRounds
 
     def pickFirstTurn(tableDeck: Deck) -> bool:
     # Choose first player turn:
