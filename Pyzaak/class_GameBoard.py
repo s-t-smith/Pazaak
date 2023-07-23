@@ -18,7 +18,7 @@ class GameBoard(tkinter.Tk):
             # I'll have to look up more configuration options that would be useful.
         baseFrame = tkinter.Frame(self)
 
-        # TODO: Create a dictionary of frames:
+        # Create a dictionary of frames:
         self.gameFrames = {}
             ### Game start
             ### Game in play
@@ -27,6 +27,8 @@ class GameBoard(tkinter.Tk):
             frame = F(self, baseFrame)
             self.gameFrames[F] = frame
             frame.pack()
+
+        # TODO: instantiate a game object?
 
         # End by raising the starting window:
         self.switchFrame(GameStart)

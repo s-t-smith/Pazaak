@@ -10,7 +10,7 @@ class Deck:
             for val in range(10):
                 for card in range(4):
                     self.cards.append(Card(val+1))
-            self.shuffle()
+            random.shuffle(self.cards)
         else:
             cardChoices = [val for val in range(-6, 7) if val != 0]
             random.shuffle(cardChoices)
