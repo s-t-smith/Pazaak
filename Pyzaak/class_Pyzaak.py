@@ -8,6 +8,8 @@ class Pyzaak(StateMachine):
     ComTurn = State()
     GameOver = State()
 
+    cycle = ()
+
     def __init__(self):
         super.__init__()
 
@@ -15,9 +17,14 @@ class Pyzaak(StateMachine):
             # these are for tracking a round's score:
         self.userScore = 0
         self.comScore = 0
-                    # these are for tracking the number of rounds won:
+            # these are for tracking the number of rounds won:
         self.userRounds = 0
         self.comRounds = 0
+
+        if pickFirstTurn(tableDeck=tableDeck):
+            UserTurn.to.itself()
+        else:
+            ComTurn.to.itself()
 
     # TODO: figure out how this game object will interact with the game board.
         ### probably need a lot of pass-by-ref.
