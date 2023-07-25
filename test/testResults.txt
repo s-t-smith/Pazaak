@@ -1,26 +1,30 @@
 Testing Card class...
-Value: 8
+	Positive, no flip:
+ Value: 3
 Flip: False
 
-Value: -10
+	Negative, flip:
+ Value: -10
 Flip: True
 
 
 
 Testing Deck class...
- 9, 1, 10, 7, 2, 2, 7, 6, 4, 9, 1, 1, 10, 3, 1, 4, 3, 4, 9, 2, 8, 5, 5, 4, 8, 5, 3, 8, 6, 10, 6, 7, 9, 8, 10, 6, 5, 2, 7, 3,
- -3, -4, -5, 3, 2, 1, -2, -1, 6, 4,
+	Main deck:
+  1, 3, 3, 1, 8, 2, 5, 5, 8, 9, 6, 4, 2, 4, 10, 5, 8, 2, 2, 4, 6, 6, 5, 7, 3, 8, 7, 7, 1, 9, 6, 10, 1, 4, 10, 10, 9, 7, 3, 9,
+	 Side deck::
+  1, -3, 5, 3, 4, -4, -5, 6, -6, -1,
 
 
 Testing Hand class...
+Value: 1
+Flip: [False]
+
 Value: -3
 Flip: [False]
 
-Value: -4
+Value: 5
 Flip: [True]
-
-Value: -5
-Flip: [False]
 
 Value: 3
 Flip: [False]
@@ -28,13 +32,3 @@ Flip: [False]
  None None None None
 
 
-Testing CPU player...
-CPU decision tree in work.
-
-Testing Pyzaak...
-Game initialize:
-Player Score: 0
-Player Hand:  -3 3 4 2
-
-Computer Score: 0
-Computer Hand:  -4 3 -2 -1

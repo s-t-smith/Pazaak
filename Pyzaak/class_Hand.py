@@ -16,10 +16,10 @@ class Hand:
             self.cards.append(card)
     
     # Going to use this for some manual testing:
-    def __str__(self) -> str:
+    def debug(self) -> str:
         outString = ""
         for card in self.cards:
             # outString += f"{card.show()}, "
             # outString = f"{outString} {card.show()},"
-            outString = f"{outString} {print(card)}"
+            outString = f"{outString} {print(card.debug())}"
         return outString

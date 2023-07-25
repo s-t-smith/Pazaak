@@ -1,10 +1,10 @@
 # This file will serve as a unit tester for project files.
 
+import sys, os
+sys.path.append(os.path.abspath(os.path.join(os.getcwd(), os.pardir, 'Pyzaak')))
 from class_Card import Card
 from class_Deck import Deck
 from class_Hand import Hand
-from class_Pyzaak import Pyzaak
-import sys
 import random
 
     # Setting up a file to record results:
@@ -15,36 +15,30 @@ sys.stdout = results
     # Testing
 print("Testing Card class...")
 testCard = Card(random.randint(1,10))
-print(testCard)
+print("\tPositive, no flip:\n", testCard.debug())
 testCard = Card(random.randint(-10, -1), True)
-print(testCard)
+print("\tNegative, flip:\n", testCard.debug())
 del testCard
 print("\n")
 
 print("Testing Deck class...")
 mainDeck = Deck(True)
-print(mainDeck)
+print("\tMain deck:\n", mainDeck.debug())
+del mainDeck
 sideDeck = Deck(False)
-print(sideDeck)
-# del testDeck
+print("\t Side deck::\n", sideDeck.debug())
 print("\n")
 
 print("Testing Hand class...")
 testHand = Hand(sideDeck.draw(4))
-print(testHand)
+print(testHand.debug())
 del testHand
-del mainDeck
 del sideDeck
 print("\n")
 
-print("Testing CPU player...")
-# placeholder
-print("CPU decision tree in work.\n")
+# TODO: test ComPlayer
 
-print("Testing Pyzaak class...")
-print("Game initialize:")
-testGame = Pyzaak()
-print(testGame)
+# TODO: test Pyzaak class
 
     # Revert output:
 results.close()

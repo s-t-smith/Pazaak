@@ -32,7 +32,7 @@ class Deck:
         return cardValue
 
     # Going to use this for some manual testing:
-    def __str__(self) -> str:
+    def debug(self) -> str:
         outString = ""
         for card in self.cards:
             # outString += f"{card.show()}, "

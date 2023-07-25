@@ -9,7 +9,7 @@ class Pyzaak(StateMachine):
     RoundOver = State()
     GameOver = State()
 
-    cycle = (
+    turnStep = (
         UserTurn.to(ComTurn)
         | ComTurn.to(UserTurn)
     )
@@ -25,15 +25,15 @@ class Pyzaak(StateMachine):
         self.userRounds = 0
         self.comRounds = 0
 
-        if pickFirstTurn(tableDeck=deck):
+        if pickFirstTurn(deck):
             self.UserTurn.to.itself()
         else:
             self.ComTurn.to.itself()
 
     # TODO: figure out how this game object will interact with the game board.
-        ### probably need a lot of pass-by-ref.
+        ### Maybe implement the entire game in the Pyzaak class and pass data to the board only for display.
     # TODO: add more methods for implimenting the game rules.
-        ### Maybe create a state machine?
+        ### This will be necessary if the game board does less; it will likely just be used to show card values on screen.
 
     def addUserScore(self, score: int) -> None:
         self.userScore += score
