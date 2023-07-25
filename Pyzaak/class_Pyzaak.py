@@ -6,11 +6,15 @@ from statemachine import StateMachine, State
 class Pyzaak(StateMachine):
 	UserTurn = State()
     ComTurn = State()
+    RoundOver = State()
     GameOver = State()
 
-    cycle = ()
+    cycle = (
+        UserTurn.to(ComTurn)
+        | ComTurn.to(UserTurn)
+    )
 
-    def __init__(self):
+    def __init__(self, deck: Deck):
         super.__init__()
 
         # Initialize scores:
@@ -21,10 +25,10 @@ class Pyzaak(StateMachine):
         self.userRounds = 0
         self.comRounds = 0
 
-        if pickFirstTurn(tableDeck=tableDeck):
-            UserTurn.to.itself()
+        if pickFirstTurn(tableDeck=deck):
+            self.UserTurn.to.itself()
         else:
-            ComTurn.to.itself()
+            self.ComTurn.to.itself()
 
     # TODO: figure out how this game object will interact with the game board.
         ### probably need a lot of pass-by-ref.
@@ -33,24 +37,36 @@ class Pyzaak(StateMachine):
 
     def addUserScore(self, score: int) -> None:
         self.userScore += score
+        if self.userScore >= 21:
+            # go to round over
+            pass    # placeholder
 
     def reportUserScore(self) -> int:
         return self.userScore
 
     def userRoundWin(self) -> None:
         self.userRounds += 1
+        if self.userRounds == 3:
+            # go to game over
+            pass    # placeholder
 
     def reportUserRounds(self) -> int:
         return self.userRounds
     
     def addComScore(self, score: int) -> None:
         self.comScore += score
+        if self.comScore >= 21:
+            # go to round over
+            pass    # placeholder
 
     def reportComScore(self) -> int:
         return self.comScore
 
     def comRoundWin(self) -> None:
         self.comRounds += 1
+        if self.comRounds == 3:
+            # got to game over
+            pass    # placeholder
 
     def reportComRounds(self) -> int:
         return self.comRounds
