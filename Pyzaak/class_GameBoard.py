@@ -1,4 +1,5 @@
 # This class will implement the window to display the game during play.
+### Started writing this for tkinter, but might try a different moddule.
 
 import tkinter
 from class_Pyzaak import Pyzaak

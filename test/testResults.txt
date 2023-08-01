@@ -1,34 +1,36 @@
 Testing Card class...
 	Positive, no flip:
- Value: 3
+ Value: 8
 Flip: False
 
 	Negative, flip:
- Value: -10
+ Value: -8
 Flip: True
 
 
 
 Testing Deck class...
 	Main deck:
-  1, 3, 3, 1, 8, 2, 5, 5, 8, 9, 6, 4, 2, 4, 10, 5, 8, 2, 2, 4, 6, 6, 5, 7, 3, 8, 7, 7, 1, 9, 6, 10, 1, 4, 10, 10, 9, 7, 3, 9,
+  3, 1, 1, 9, 8, 7, 10, 4, 5, 5, 7, 1, 4, 6, 9, 2, 6, 7, 2, 8, 7, 3, 6, 5, 2, 2, 9, 5, 9, 10, 8, 10, 3, 1, 6, 4, 3, 4, 10, 8,
 	 Side deck::
-  1, -3, 5, 3, 4, -4, -5, 6, -6, -1,
+  -3, -1, -5, 2, -6, 6, 1, 4, -2, -4,
 
 
 Testing Hand class...
-Value: 1
-Flip: [False]
-
 Value: -3
 Flip: [False]
 
-Value: 5
-Flip: [True]
-
-Value: 3
+Value: -1
 Flip: [False]
+
+Value: -5
+Flip: [False]
+
+Value: 2
+Flip: [True]
 
  None None None None
 
 
+Testing Pyzaak class...
+Pyzaak(model=Model(state=GameInit), state_field='state', current_state='GameInit')

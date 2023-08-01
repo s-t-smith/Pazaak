@@ -5,6 +5,7 @@ sys.path.append(os.path.abspath(os.path.join(os.getcwd(), os.pardir, 'Pyzaak')))
 from class_Card import Card
 from class_Deck import Deck
 from class_Hand import Hand
+from class_Pyzaak import Pyzaak
 import random
 
     # Setting up a file to record results:
@@ -39,6 +40,11 @@ print("\n")
 # TODO: test ComPlayer
 
 # TODO: test Pyzaak class
+print("Testing Pyzaak class...")
+testGame = Pyzaak()
+# print(os.getcwd())
+print(testGame)
+testGame._graph().write_png(os.getcwd())
 
     # Revert output:
 results.close()
