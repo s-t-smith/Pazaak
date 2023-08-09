@@ -6,11 +6,11 @@ from statemachine import StateMachine, State
 class Pyzaak(StateMachine):
 	
     # States:
-    GameInit = State(initial=True)
-    UserTurn = State()
-    ComTurn = State()
-    RoundOver = State()
-    GameOver = State()
+    GameInit = State(name='Game Start', initial=True)
+    UserTurn = State(name='Player Turn')
+    ComTurn = State(name='Computer Turn')
+    RoundOver = State(name='End of Round')
+    GameOver = State(name='Game Over', final=True)
 
     # Actions:
     gameStart = (
@@ -40,4 +40,17 @@ class Pyzaak(StateMachine):
     ### comRounds
 
     # Class methods:
-    
+    def on_enter_UserTurn(self):
+        pass    # placeholder
+
+    def on_exit_UserTurn(self):
+        pass    # placeholder
+
+    def on_enter_ComTurn(self):
+        pass    # placeholder
+
+    def on_exit_ComTurn(self):
+        pass    # placeholder
+
+    def on_enter_RoundOver(self):
+        pass     # placeholder

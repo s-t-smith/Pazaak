@@ -37,14 +37,14 @@ del testHand
 del sideDeck
 print("\n")
 
-# TODO: test ComPlayer
-
 # TODO: test Pyzaak class
 print("Testing Pyzaak class...")
 testGame = Pyzaak()
 # print(os.getcwd())
 print(testGame)
 testGame._graph().write_png(os.getcwd())
+
+# TODO: test ComPlayer
 
     # Revert output:
 results.close()
