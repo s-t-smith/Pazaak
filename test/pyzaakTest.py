@@ -1,12 +1,12 @@
 # This file will serve as a unit tester for project files.
 
 import sys, os
-sys.path.append(os.path.abspath(os.path.join(os.getcwd(), os.pardir, 'Pyzaak')))
-from class_Card import Card
-from class_Deck import Deck
-from class_Hand import Hand
-from class_Pyzaak import Pyzaak
 import random
+# sys.path.append(os.path.abspath(os.path.join(os.getcwd(), os.pardir, 'Pyzaak')))
+from Pyzaak.class_Card import Card
+from Pyzaak.class_Deck import Deck
+from Pyzaak.class_Hand import Hand
+from Pyzaak.class_Pyzaak import Pyzaak
 
     # Setting up a file to record results:
 orig_stdout = sys.stdout
