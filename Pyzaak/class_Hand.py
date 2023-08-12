@@ -1,6 +1,6 @@
 # This is the class to implement the player's hand of cards for a game.
 
-from class_Card import Card
+from Pyzaak.class_Card import Card
 
 class Hand:
     def __init__(self, drawCards: list):

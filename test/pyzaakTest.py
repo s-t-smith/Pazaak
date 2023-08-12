@@ -3,6 +3,7 @@
 import sys, os
 import random
 # sys.path.append(os.path.abspath(os.path.join(os.getcwd(), os.pardir, 'Pyzaak')))
+### export PYTHONPATH=pwd
 from Pyzaak.class_Card import Card
 from Pyzaak.class_Deck import Deck
 from Pyzaak.class_Hand import Hand

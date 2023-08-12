@@ -2,7 +2,7 @@
 ### Started writing this for tkinter, but might try a different moddule.
 
 import tkinter
-from class_Pyzaak import Pyzaak
+from Pyzaak.class_Pyzaak import Pyzaak
 
 # Extends the Tk class:
 class GameBoard(tkinter.Tk):

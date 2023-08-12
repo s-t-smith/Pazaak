@@ -1,6 +1,6 @@
 # This class will be the base class for the table deck and the side deck.
 
-from class_Card import Card
+from Pyzaak.class_Card import Card
 import random
 
 class Deck:

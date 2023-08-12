@@ -1,6 +1,6 @@
 # This class will handle the decision-making for the computer player (user's opponent).
 
-from class_Hand import Hand
+from Pyzaak.class_Hand import Hand
 
 class CPUPlayer:
     def __init__(self) -> None:

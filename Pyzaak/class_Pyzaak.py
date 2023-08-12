@@ -1,6 +1,6 @@
 # This file will implement the game state for a session of Pazaak.
 
-from class_Deck import Deck
+from Pyzaak.class_Deck import Deck
 from statemachine import StateMachine, State
 
 class Pyzaak(StateMachine):
