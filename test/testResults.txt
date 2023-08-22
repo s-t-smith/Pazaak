@@ -1,32 +1,32 @@
 Testing Card class...
 	Positive, no flip:
- Value: 8
+ Value: 3
 Flip: False
 
 	Negative, flip:
- Value: -8
+ Value: -5
 Flip: True
 
 
 
 Testing Deck class...
 	Main deck:
-  3, 1, 1, 9, 8, 7, 10, 4, 5, 5, 7, 1, 4, 6, 9, 2, 6, 7, 2, 8, 7, 3, 6, 5, 2, 2, 9, 5, 9, 10, 8, 10, 3, 1, 6, 4, 3, 4, 10, 8,
-	 Side deck::
-  -3, -1, -5, 2, -6, 6, 1, 4, -2, -4,
+  4, 3, 6, 2, 10, 1, 1, 4, 8, 5, 2, 5, 5, 3, 8, 9, 9, 8, 6, 5, 10, 4, 10, 10, 1, 6, 3, 4, 7, 2, 8, 3, 7, 2, 7, 1, 9, 7, 9, 6,
+	 Side deck:
+  -6, -3, 2, 6, 1, -5, 4, -4, 5, 3,
 
 
 Testing Hand class...
+Value: -6
+Flip: [True]
+
 Value: -3
 Flip: [False]
 
-Value: -1
-Flip: [False]
-
-Value: -5
-Flip: [False]
-
 Value: 2
+Flip: [False]
+
+Value: 6
 Flip: [True]
 
  None None None None

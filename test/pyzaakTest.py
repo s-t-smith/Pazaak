@@ -4,6 +4,7 @@ import sys, os
 import random
 # sys.path.append(os.path.abspath(os.path.join(os.getcwd(), os.pardir, 'Pyzaak')))
 ### export PYTHONPATH=pwd
+from statemachine.contrib.diagram import DotGraphMachine
 from Pyzaak.class_Card import Card
 from Pyzaak.class_Deck import Deck
 from Pyzaak.class_Hand import Hand
@@ -28,7 +29,7 @@ mainDeck = Deck(True)
 print("\tMain deck:\n", mainDeck.debug())
 del mainDeck
 sideDeck = Deck(False)
-print("\t Side deck::\n", sideDeck.debug())
+print("\t Side deck:\n", sideDeck.debug())
 print("\n")
 
 print("Testing Hand class...")
@@ -44,6 +45,7 @@ testGame = Pyzaak()
 # print(os.getcwd())
 print(testGame)
 testGame._graph().write_png(os.getcwd())
+del testGame
 
 # TODO: test ComPlayer
 
